@@ -1,8 +1,0 @@
-{
-  "containerName": "cmc-backend-db-1",
-  "dumpPath": "/home/bandapixels/projects/banda/dumps/convo_remote_prod-2023_04_21_13_16_31-dump.sql",
-  "db": {
-    "dbName": "convosight",
-    "dbUser": "convosightuser"
-  }
-}
