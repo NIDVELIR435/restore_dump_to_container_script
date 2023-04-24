@@ -11,9 +11,6 @@ config_file_name = 'config.json'
 def check_input(message):
     while True:
         answer = input(message)
-        if answer == '':
-            print(f"{colors.red_print_color}Cannot be empty{colors.reset_print_color}")
-            continue
         if len(answer.split(' ')) > 1:
             print(f"{colors.red_print_color}Cannot have spaces{colors.reset_print_color}")
             continue
@@ -21,6 +18,9 @@ def check_input(message):
 
 
 def check_yes_no(message):
+    print(message)
+    if message == '':
+        return False
     if 'y' in message[0:1].lower():
         return True
 
@@ -164,11 +164,11 @@ def add_role():
 
     enough_roles = True
     while True:
-        answer = check_input("Does all roles created?: ")
+        answer = check_input("add new role?: ")
         if 'y' in answer[0:1].lower():
-            break
-        elif 'n' in answer[0:1].lower():
             enough_roles = False
+            break
+        elif 'n' in answer[0:1].lower() or answer == '':
             break
         continue
 
@@ -204,4 +204,5 @@ def do_migration():
 if __name__ == '__main__':
     write_new_data_to_config()
     add_role()
+    # todo check and create db step
     do_migration()
